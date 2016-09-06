@@ -2,7 +2,7 @@ var jwt = require('jwt-simple');
 var config = require('../config');
 var models = require('../models/index');
 
-
+// jwt.encode gives back a payload, which is used in passport.js
 function tokenForUser(user) {
   var timestamp = new Date().getTime();
   return jwt.encode({ sub: user.id, iat:timestamp }, config.secret);
