@@ -4,7 +4,7 @@ var authentication = require('./controllers/authentication');
 
 
 
-router.post('/signup', authentication.signup)
+router.post('/signup', authentication.signup);
 
 
 module.exports = router;
