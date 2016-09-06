@@ -8,7 +8,21 @@ var app = express();
 var router = require('./router');
 
 
+var db = require('./models/index')
+var pg = require('pg');
+var Sequelize = require('sequelize')
+  , sequelize = new Sequelize('database_name', 'username', 'password', {
+      dialect: "postgres",
+      port:    5432,
+    });
 
+sequelize
+  .authenticate()
+  .then(function(err) {
+    console.log('Connection has been established successfully.');
+  }, function (err) {
+    console.log('Unable to connect to the database:', err);
+  });
 
 
 // App Setup
